@@ -2,9 +2,11 @@ import React from 'react'
 
 function Body() {
   return (
-    <div>
-      
-    </div>
+    <>
+      <div className=' bg-slate-600'>
+
+      </div>
+    </>
   )
 }
 
