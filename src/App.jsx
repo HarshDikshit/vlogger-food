@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import Header from './components/Header'
-import Landing from './components/Landing'
-import Body from './components/Body'
+import Landing from './components/home/Landing'
+import Body from './components/home/Body'
+import Footer from './components/Footer'
+import { Outlet } from 'react-router-dom'
+
 
 
 function App() {
@@ -10,8 +13,8 @@ function App() {
   return (
     <>
    <Header/>
-   <Landing/>
-   <Body/>
+   <Outlet/>
+   <Footer/>
 
     </>
   )
