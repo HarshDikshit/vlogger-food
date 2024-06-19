@@ -4,8 +4,10 @@ import { collection, limit, onSnapshot, query, where } from 'firebase/firestore'
 import { db } from '../../../Firebase';
 import { useSelector } from 'react-redux';
 import { easeInOut, motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 function Body() {
+  const navigate =useNavigate()
   const [data, setData] = useState([])
 
   const container = (delay)=>({
@@ -58,6 +60,7 @@ function Body() {
               initial='hidden2'
               variants={container((index/10)+0.5)}
               whileInView='visible'
+              onClick={()=>{ navigate(`/categories/${item.txt}`)}}
                className=' flex flex-col gap-6 justify-center items-center'>
               <img src={`./categories/${item.url}`} className=' w-[20px] scale-[8]' alt="icon" />
               <span className=' capitalize'>{item.txt}</span>
