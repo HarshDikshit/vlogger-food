@@ -17,7 +17,7 @@ function CartLayout() {
   const unsubscribe = onSnapshot(q, (querySnapshot) => {
  
   const docsData=querySnapshot.docs.map((doc) =>( {
-    id: doc.id, 
+    id: doc.id,  
     ...doc.data()
   }));
   setCartPro(docsData)

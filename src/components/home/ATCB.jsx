@@ -40,7 +40,7 @@ function ATCB({
              { quantity===0 &&  <button onClick={()=>{
                         setQuantity(quantity+1)
                         dispatch(updateCartValue(Number.parseInt(cartVal)+1))
-                    }} className={` px-2 py-2 rounded-lg  bg-black text-white flex `}> <img src='plus.png' className=' w-[10px] scale-[2] object-cover'/></button>}
+                    }} className={` px-2 py-2 rounded-lg  bg-black text-white flex `}> Add to cart</button>}
 
               { quantity !== 0 && <div className={`  flex`}>
                     <div className="plus bg-black text-center text-white rounded-s-lg cursor-pointer  font-bold opacity-60 px-2 py-1"  onClick={async()=>{
