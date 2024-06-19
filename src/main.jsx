@@ -10,6 +10,7 @@ import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import { Provider } from 'react-redux'
 import store from './store/store.js'
+import Cart from './pages/Cart.jsx'
 
 
 const router = createBrowserRouter([
@@ -30,12 +31,16 @@ const router = createBrowserRouter([
         element: <Account/>
       },
       {
-        path: '/about',
+        path: '/add',
         element: <About/>
       },
       {
         path: '/contact-us',
         element: <Contact/>
+      },
+      {
+        path: '/cart',
+        element: <Cart/>
       },
     ]
   }
