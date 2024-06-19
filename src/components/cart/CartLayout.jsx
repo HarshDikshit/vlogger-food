@@ -34,17 +34,18 @@ fetch()
     
   return (
     <div>
+      <div className=' w-full h-64 bg-slate-400'><img src=''/></div>
       <div className="outer-wrapper px-10 flex flex-col py-[80px]">
         <div className='heading text-2xl font-bold m-auto '> Your Cart List:</div>
 
-        <div className="list-wrapper">
+        <div className="list-wrapper mb-2 rounded-xl ">
           
               {cartPro.map((item,index)=>(
-                  <div className="list-item w-full bg-white shadow-lg px-10 py-3">
-                 <div className="img">
-                 <img src={item.image} alt="" />
-               </div>
-
+                  <div key={index} className="list-item w-full bg-white shadow-lg px-52 py-3 rounded-2xl ">
+                <div className='flex justify-between'> <div className="img w-20 h-20">
+                 <img src={item.image } alt="" className=' rounded-2xl'/>
+               </div >
+              
                <div className="name">
                 {item.name}
                </div>
@@ -56,7 +57,7 @@ fetch()
                <div className="quantity">
                 X {item.reqQuantity}
                </div>
-
+               </div>
                </div>
               ))}
                

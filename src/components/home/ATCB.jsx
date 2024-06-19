@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateCartValue } from '../../store/cartSlice';
@@ -14,10 +15,12 @@ function ATCB({
     const dispatch =useDispatch();
     const cartVal = useSelector(state => state.cart.cartValue)
     const userdata= useSelector(state => state.auth.userData)
+    const loginStatus= useSelector(state => state.auth.loginStatus)
+
 
     useEffect(()=>{
         
-         onSnapshot(doc(db, "users", userdata.uid,'cartProduct',docu.id), (cartDoc) => {
+        loginStatus===true && onSnapshot(doc(db, "users", userdata.uid,'cartProduct',docu.id), (cartDoc) => {
             setQuantity(cartDoc.data().reqQuantity)
             dispatch(updateCartValue(Object.keys(cartDoc.data().cartProduct).length))
         });
