@@ -52,8 +52,8 @@ function Body() {
   
   return (
     <>
-      <div className=' mt-10 rounded-t-lg z-[2]  flex flex-col px-10 py-3 bg-slate-600 text-white '>
-        <div className=' flex justify-between items-center py-5 px-10'>
+      <div className=' mt-10 rounded-t-lg   flex flex-col flex-wrap px-10 py-3 bg-slate-600 text-white '>
+        <div className='categories flex justify-between items-center py-5 px-10'>
           {
             [{url:'burger.png', txt:'Breakfast'},{url:'burito.png', txt:'south'},{ url:'cherry.png', txt:'fruits'}, {url:'frenchFries.png', txt:'snacks'},{url:'orange.png', txt:'healthy'},{url:'pizza1.png', txt:'italian'}, {url:'taco.png', txt:'mexican'}].map((item,index)=>(
               <motion.div

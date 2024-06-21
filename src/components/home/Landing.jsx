@@ -15,7 +15,7 @@ const container = (delay)=>({
 })
 return (
   <>
-    <div className="wrapper w-full px-[100px] flex ">
+    <div className="wrapper w-full px-[100px] flex flex-wrap ">
 
     <div className=" flex flex-col w-[50%]  pt-[200px]">
           {["One Chai", "Please!", "Without Sugar"].map((item, index)=>(
@@ -28,7 +28,7 @@ return (
           ))}</div>
       
 
-      <div className="right w-[50%] flex items-start justify-center  pt-[100px] ">
+      <div className="right w-[50%] flex  flex-wrap items-start justify-center  pt-[100px] ">
           <motion.img
           initial={{opacity:0,}}
           whileInView={{opacity:1, 

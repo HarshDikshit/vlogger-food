@@ -33,7 +33,7 @@ function Categories() {
   },[userdata])
   return (
     <div className=' pt-28 px-20 flex flex-col  '>
-      <div className=' m-auto'>{categories}</div>
+      <div className=' m-auto font-bold text-5xl'>{categories}</div>
       <div className="outer-wrapper">
         <div className="item-wrapper flex gap-9 flex-wrap">
           {cartPro.map((item, index)=>(

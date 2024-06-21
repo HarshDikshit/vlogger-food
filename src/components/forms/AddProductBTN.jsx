@@ -4,7 +4,10 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import {v4} from 'uuid'
 import { Firestore, addDoc, collection, doc, serverTimestamp, setDoc } from 'firebase/firestore'
 
-function AddProductBTN() {
+function AddProductBTN({
+    click,
+    className
+}) {
     const [name, setName]= useState('')
     const [price, setPrice]= useState('')
     const [des, setDes]= useState('')
@@ -33,11 +36,11 @@ function AddProductBTN() {
     }
   return (
     <div>
-        <div className=' w-full bg-black h-full absolute z-[1]  opacity-60 backdrop-blur-lg flex justify-center items-center '></div>
-
-            <div className="background absolute z-[5] flex items-center justify-center  w-full h-full">
-                <div className="items-wrapper flex absolute m-auto 
-             bg-white z-[5] py-6 rounded-2xl shadow-lg w-[50vh] px-3">
+       
+      <div className={`outer fixed  top-0 left-0 z-[10] h-full w-full flex justify-center items-center backdrop-blur-sm bg-black bg-opacity-60 ${className}`}>
+      <div onClick={click} className=' absolute left-0 top-0 w-full h-full z-[11]'></div>
+      <div className="items-wrapper flex  m-auto 
+             bg-white z-[20] py-6 rounded-2xl shadow-lg w-[50vh] px-3">
                     <div className="items m-auto">
                         <h1 className='heading text-2xl  capitalize font-bold '>Add form</h1>
                         <input type="text" className='name w-full mt-6 border-black border-[2px] rounded-lg p-1 ' placeholder='Enter name'  onChange={(e)=>{
@@ -81,8 +84,7 @@ function AddProductBTN() {
                         
                     </div>
                 </div>
-            </div>
-        
+      </div>
     </div>
   )
 }

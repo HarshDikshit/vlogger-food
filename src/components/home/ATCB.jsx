@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateCartValue } from '../../store/cartSlice';
-import { arrayUnion, deleteDoc, deleteField, doc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore';
+import { arrayUnion, collection, deleteDoc, deleteField, doc, getDocs, onSnapshot, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../Firebase';
 
 
@@ -22,8 +22,13 @@ function ATCB({
         
         loginStatus===true && onSnapshot(doc(db, "users", userdata.uid,'cartProduct',docu.id), (cartDoc) => {
             setQuantity(cartDoc.data().reqQuantity)
-            dispatch(updateCartValue(Object.keys(cartDoc.data().cartProduct).length))
+            dispatch(updateCartValue(Object.keys(cartDoc.data().cartProduct).length()))
+            
         });
+        const f= async()=>{
+        const snaps =await getDocs(collection(db,'users',userdata.uid,'cartProduct'))
+        dispatch(updateCartValue(snaps.size))
+    }
         try {
             if(quantity>0){
         setDoc(doc(db,'users',userdata.uid,'cartProduct',docu.id),{reqQuantity:quantity,...docu}, {merge:true})
@@ -32,6 +37,7 @@ function ATCB({
     } catch (error) {
             
     }
+    f()
     },[quantity])
     
   return (
