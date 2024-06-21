@@ -49,14 +49,7 @@ const router = createBrowserRouter([
         path: '/signin',
         element: <SignIn/>
       },
-      {
-        path: '/temporary',
-        element:<Temporary/>
-      },
-      {
-        path: '/arpit',
-        element:<Arpit/>
-      },
+     
     ]
   }
 ])
