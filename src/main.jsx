@@ -12,8 +12,8 @@ import { Provider } from 'react-redux'
 import store from './store/store.js'
 import Cart from './pages/Cart.jsx'
 import SignIn from './pages/SignIn.jsx'
-import Arpit from './pages/Arpit.jsx'
-import Temporary from './pages/Temporary.jsx'
+
+
 
 
 const router = createBrowserRouter([

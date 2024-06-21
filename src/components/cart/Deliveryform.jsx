@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { db } from '../../../Firebase'
 import { doc, serverTimestamp } from 'firebase/firestore'
 import Done from '../lottie/Done'
+import { useNavigate } from 'react-router-dom'
 
 function Deliveryform() {
     const userStatus=useSelector(state=>(state.auth.loginStatus))
@@ -14,12 +15,15 @@ function Deliveryform() {
     const [pin, setPin]=useState('')
 
     const [anim, setAnim]=useState(false)
-
+    const navigate =useNavigate()
 
 
     const order= async()=>{
         setAnim(!anim)
-        alert('vgvgv')
+        
+        setTimeout(() => {
+            navigate('/')
+        }, 3000);
         try {
             await setDoc(doc(db, "users", userData.uid), {order:{date:serverTimestamp(),dd:{name: name, contact: num, address:addr, pin:pin}}},);
             setAnim(!anim)
