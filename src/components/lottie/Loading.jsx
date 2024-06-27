@@ -2,7 +2,7 @@ import Lottie from 'lottie-react'
 import React from 'react'
 import animationData from '../../../public/lottieFile/loading.json'
 
-function Loading({className}) {
+function Loading({className, click}) {
   return (
 
     <div className={`${className} z-[20] backdrop-blur-sm bg-black bg-opacity-60 h-full w-full fixed top-0 left-0 justify-center items-center flex`}>

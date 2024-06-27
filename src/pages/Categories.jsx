@@ -35,9 +35,12 @@ function Categories() {
     <div className=' pt-28 px-20 flex flex-col  '>
       <div className=' m-auto font-bold text-5xl'>{categories}</div>
       <div className="outer-wrapper">
-        <div className="item-wrapper flex gap-9 flex-wrap">
+        <div className="item-wrapper flex gap-9 py-8 flex-wrap">
           {cartPro.map((item, index)=>(
-            <div className="item p-3 rounded-2xl shadow-lg flex flex-col">
+            <div
+            style={{
+    boxShadow: '2px 2px 15px black'}}
+             className="item p-3 rounded-2xl shadow-lg flex flex-col">
             <div>
               <img src={item.image} className=' w-[200px] h-[200px] rounded-2xl' alt="" />
             </div>

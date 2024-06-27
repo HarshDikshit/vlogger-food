@@ -3,7 +3,8 @@ import { db, storage } from '../../../Firebase'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import {v4} from 'uuid'
 import { Firestore, addDoc, collection, doc, serverTimestamp, setDoc } from 'firebase/firestore'
-import Loading from '../lottie/Loading'
+import Loading from '../lottie/Loading.jsx'
+import Done from '../lottie/Done.jsx'
 
 function AddProductBTN({
     click,
@@ -13,7 +14,7 @@ function AddProductBTN({
     const [price, setPrice]= useState('')
     const [des, setDes]= useState('')
     const [quantity, setQuantity]= useState('')
-    const [category, setCategory]= useState('')
+    const [category, setCategory]= useState('snacks')
     const [loading, setLoading] = useState(false)
     const [file, setFile]= useState({
         file: null,
@@ -28,18 +29,23 @@ function AddProductBTN({
             const uploadTask = uploadBytesResumable(storageRef, file.file);
             uploadTask.on('state_changed',(snapshot)=>{},(error)=>{}, ()=>{getDownloadURL(uploadTask.snapshot.ref)
                 .then(async(url)=>{
-                    
+                    setLoading(false)
+                    click()
                     await addDoc(collection(db,'products'), {name: name, description: des,
                         quantity:quantity, category:category, image: url, price: price,
-                        createdAt: serverTimestamp()
+                        createdAt: new Date().getTime()
                     })
-                }).catch(e=>{console.log(e);})
+                }).catch(e=>{
+                    setLoading(false)
+                    console.log(e);})
             })
-            setLoading(false)
+            
         }
     }
   return (
     <div>
+        
+        {loading===true && <Loading className={`${loading===true? 'block': 'hidden'}`}/>}
 <div className={`outer fixed  top-0 left-0 z-[10] h-full w-full flex justify-center items-center backdrop-blur-sm bg-black bg-opacity-60 ${className}`}>
     <div onClick={click} className=' absolute left-0 top-0 w-full h-full z-[11]'></div>
     <div className="items-wrapper flex  m-auto 
@@ -66,12 +72,13 @@ function AddProductBTN({
                             setQuantity(e.target.value)
                         }} />
                         <select className=' w-full mt-6 border-black border-[2px] rounded-lg p-1 '
+                        value={category}
                         onChange={(e)=>{
                             setCategory(e.target.value)
                         }}  >
                             <option value="breakfast">breakfast</option>
                             <option value="dinner">dinner</option>
-                            <option value="snaks">snacks</option>
+                            <option value="snacks">snacks</option>
                         </select>
 
                         <input type="file" 
