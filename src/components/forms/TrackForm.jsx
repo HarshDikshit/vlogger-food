@@ -10,10 +10,10 @@ function TrackForm({
   const [data, setData] = useState([])
 
   const userdata= useSelector(state => state.auth.userData)
-
+  const userStatus=useSelector(state=>(state.auth.loginStatus))
   useEffect(()=>{
-    try {
-      const q = query(collection(db,'users',userdata.uid,'order'));
+     try {
+      const q = query(collection(db,'users',userdata?.uid,'order'));
       const unsubscribe = onSnapshot(q, async (querySnapshot) => {
      
       const docsData= await querySnapshot.docs.map((doc) =>( {
