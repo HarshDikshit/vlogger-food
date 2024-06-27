@@ -13,7 +13,7 @@ function CartBtn() {
     <div>
         <div onClick={()=>(navigate('/cart'))} className=' fixed p-4 right-10 bottom-10 rounded-full flex flex-col items-center justify-center bg-transparent '>
             <span className=' absolute text-black text-center font-bold z-[999] top-9  left-10   text-2xl'>{cartVal}</span>
-            <img src="cart.png" className='  object-cover  scale-[2] w-16 ' alt="icon" />
+            <img src="/img/cart.png" className='  object-cover  scale-[2] w-16 ' alt="icon" />
         </div>
     </div>
   )

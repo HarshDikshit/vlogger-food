@@ -1,8 +1,8 @@
 import Lottie from 'lottie-react'
 import React from 'react'
-import animationData from '../../../public/lottieFile/done.json'
+import animationData from '../../../public/lottieFile/loading.json'
 
-function Done({className}) {
+function Loading({className}) {
   return (
 
     <div className={`${className} z-[20] backdrop-blur-sm bg-black bg-opacity-60 h-full w-full fixed top-0 left-0 justify-center items-center flex`}>
@@ -11,4 +11,4 @@ function Done({className}) {
   )
 }
 
-export default Done
+export default Loading

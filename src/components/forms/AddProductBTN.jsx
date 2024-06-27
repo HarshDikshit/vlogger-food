@@ -3,6 +3,7 @@ import { db, storage } from '../../../Firebase'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import {v4} from 'uuid'
 import { Firestore, addDoc, collection, doc, serverTimestamp, setDoc } from 'firebase/firestore'
+import Loading from '../lottie/Loading'
 
 function AddProductBTN({
     click,
@@ -13,13 +14,16 @@ function AddProductBTN({
     const [des, setDes]= useState('')
     const [quantity, setQuantity]= useState('')
     const [category, setCategory]= useState('')
+    const [loading, setLoading] = useState(false)
     const [file, setFile]= useState({
         file: null,
         path:''
     })
 
     const handleUpload= async()=>{
+        
         if(file.file!==null){
+            setLoading(true)
             const storageRef = ref(storage,`productImage/${v4()}`)
             const uploadTask = uploadBytesResumable(storageRef, file.file);
             uploadTask.on('state_changed',(snapshot)=>{},(error)=>{}, ()=>{getDownloadURL(uploadTask.snapshot.ref)
@@ -31,16 +35,15 @@ function AddProductBTN({
                     })
                 }).catch(e=>{console.log(e);})
             })
-            
+            setLoading(false)
         }
     }
   return (
     <div>
-       
-      <div className={`outer fixed  top-0 left-0 z-[10] h-full w-full flex justify-center items-center backdrop-blur-sm bg-black bg-opacity-60 ${className}`}>
-      <div onClick={click} className=' absolute left-0 top-0 w-full h-full z-[11]'></div>
-      <div className="items-wrapper flex  m-auto 
-             bg-white z-[20] py-6 rounded-2xl shadow-lg w-[50vh] px-3">
+<div className={`outer fixed  top-0 left-0 z-[10] h-full w-full flex justify-center items-center backdrop-blur-sm bg-black bg-opacity-60 ${className}`}>
+    <div onClick={click} className=' absolute left-0 top-0 w-full h-full z-[11]'></div>
+    <div className="items-wrapper flex  m-auto 
+            bg-white z-[20] py-6 rounded-2xl shadow-lg w-[50vh] px-3">
                     <div className="items m-auto">
                         <h1 className='heading text-2xl  capitalize font-bold '>Add form</h1>
                         <input type="text" className='name w-full mt-6 border-black border-[2px] rounded-lg p-1 ' placeholder='Enter name'  onChange={(e)=>{
@@ -84,8 +87,9 @@ function AddProductBTN({
                         
                     </div>
                 </div>
+                </div>
       </div>
-    </div>
+    
   )
 }
 

@@ -84,7 +84,7 @@ function Header() {
              }} className={` cursor-pointer text-md   text-white
              whitespace-nowrap`}>Add</motion.div>}
              {/* track btn */}
-        {admincheck===true && <motion.div
+        { <motion.div
             variants={container(1.2)}
             initial='hidden'
             animate='visible'
@@ -99,9 +99,9 @@ function Header() {
             setopen(!open)
           }} className=' text-lg font-semibold h-10 whitespace-nowrap rounded-full text-gray-700 ml-8 mr-5 bg-white px-3 py2'>Sign In</button>}
 
-          {userStatus===true && <div onClick={()=>{setAccOpn(!accOpn)
+          {(userStatus===true && userData?.avatar !== '' ) && <div onClick={()=>{setAccOpn(!accOpn)
             setopen(!open)
-          }} className=' bg-black w-[25px] h-[25px] rounded-full border-[3px] border-gray-500 shadow-xl  ml-8 mr-5 flex justify-center items-center'><img className=' rounded-full object-cover w-[25px] h-[25px]' src={userData.avatar} alt="" /></div>}
+          }} className=' bg-black w-[25px] h-[25px] rounded-full border-[3px] border-gray-500 shadow-xl  ml-8 mr-5 flex justify-center items-center'><img className=' rounded-full object-cover w-[25px] h-[25px]' src={userData?.avatar} alt="user" /></div>}
         </div>
 
       <AddProductBTN click={()=>{setAddOpn(!addOpn)}} className={`${addOpn===true? 'block':'hidden'}`}/>

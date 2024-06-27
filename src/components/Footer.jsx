@@ -21,8 +21,8 @@ function Footer() {
 <div className=" flex flex-col w-full justify-center mt-9 mb-3 px-8">
 
 <div className=' flex flex-col justify-center items-center '>
-<h1 className=' justify-self-center  text-indigo-500 uppercase font-bold text-2xl my-2'>Vloggers Food</h1>
-<h5 className=' justify-self-center text-indigo-500  text-md '>You can visit our social media handles.</h5>
+<h1 className=' justify-self-center  text-indigo-500 m-auto uppercase font-bold text-2xl my-2'>Vloggers Food</h1>
+<h5 className=' justify-self-center text-indigo-500 m-auto  text-md '>You can visit our social media handles.</h5>
 
 </div>
 

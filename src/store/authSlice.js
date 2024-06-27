@@ -18,9 +18,12 @@ const authSlice =createSlice({
             state.isAdmin=true;
            
         },
+        logOut : (state) => {
+            state.loginStatus = false;
+        }
 
     }
 })
 
-export const {login, adminStatus} =authSlice.actions;
+export const {login, adminStatus, logOut} =authSlice.actions;
 export default authSlice.reducer;

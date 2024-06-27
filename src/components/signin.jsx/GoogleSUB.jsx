@@ -1,6 +1,6 @@
 import { signInWithPopup } from 'firebase/auth'
 import React, { useState } from 'react'
-import { auth, db, provider } from '../../../Firebase'
+import { auth, db, provider, } from '../../../Firebase'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 import {FaGoogle} from 'react-icons/fa6'
 

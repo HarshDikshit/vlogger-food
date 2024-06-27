@@ -14,7 +14,6 @@ import { doc, getDoc, onSnapshot } from 'firebase/firestore'
 
 
 function App() {
-  const [count, setCount] = useState(0)
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
 
@@ -24,7 +23,6 @@ function App() {
     try {
     onAuthStateChanged(auth, async(user) => {
       if (user) {
-        console.log('logged in');
           await onSnapshot(doc(db, "users", user.uid),async (doc) => {
           dispatch(login(doc.data()))
           console.log(doc.data());
