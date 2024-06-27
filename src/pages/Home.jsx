@@ -4,7 +4,7 @@ import Landing from '../components/home/Landing'
 
 function Home() {
   return (
-    <div>
+    <div className=' min-w-full flex flex-col'>
         <Landing/>
       <Body/>
       

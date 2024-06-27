@@ -52,8 +52,8 @@ function Body() {
   
   return (
     <>
-      <div className=' mt-10 rounded-t-lg flex flex-col flex-wrap p-2 md:px-10 py-3 bg-slate-600 text-white '>
-        <div className='categories flex justify-between items-center py-5 p-0 md:px-10'>
+      <div className='min-w-full overflow-hidden rounded-t-lg flex flex-col flex-wrap p-2 md:px-10 py-3 bg-slate-600 text-white '>
+        <div className='categories px-0 overflow-x-auto overflow-y-hidden flex justify-between items-center py-5 md:px-10'>
           {
             [{url:'burger.png', txt:'breakfast'},{url:'burito.png', txt:'south'},{ url:'cherry.png', txt:'fruits'}, {url:'frenchFries.png', txt:'snacks'},{url:'orange.png', txt:'healthy'},{url:'pizza1.png', txt:'italian'}, {url:'taco.png', txt:'mexican'}].map((item,index)=>(
               <motion.div
@@ -61,14 +61,14 @@ function Body() {
               variants={container((index/10)+0.5)}
               whileInView='visible'
               onClick={()=>{ navigate(`/categories/${item.txt}`)}}
-               className=' flex flex-col gap-6 justify-center items-center'>
+              className=' flex flex-col gap-3 justify-center items-center'>
               <img src={`./categories/${item.url}`} className=' w-[20px] scale-[8]' alt="icon" />
               <span className=' capitalize'>{item.txt}</span>
               </motion.div>
             ))
           }
         </div>
-        <div  className=' flex gap-5 flex-wrap '>
+        <div  className=' flex gap-5  flex-wrap '>
       { data.map((doc, index)=>(
   <motion.div
   variants={container((index/10)+0.5)}
@@ -80,7 +80,7 @@ function Body() {
     backgroundImage: `url(${doc.image})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover'
-  }} className=' h-[250px] md:h-[500px] p-10 flex w-full md:w-[32%] rounded-2xl my-5  bg-white '>
+  }} className=' h-[250px] md:h-[500px] p-10 flex w-[98%]  md:w-[32%] rounded-2xl my-5  bg-white '>
   {/* <img src={doc.image} alt="" className=' absolute z-[0] rounded-2xl' /> */}
   <div>
   <h1 className=' text-xl font-semibold capitalize'>{doc.name}</h1>
@@ -91,9 +91,6 @@ function Body() {
   </div>
 </motion.div>
       ))}
-      
-        
-        
         </div>
       </div>
     </>

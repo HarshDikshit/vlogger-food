@@ -34,7 +34,7 @@ function Header() {
 
   return (
     <>
-    <div className=' absolute  flex h-12 justify-between w-full shadow-2xl  '>
+    <div className=' fixed z-[999]  flex h-12 justify-between w-full   '>
     <div className='bg-slate-600  px-10 py-1.5 justify-between z-[999] w-full flex  shadow-lg'>
         <div
         
@@ -57,7 +57,7 @@ function Header() {
          <FaBars onClick={()=>{setopen(!open)}} className=' text-white text-xl md:hidden'/>
          </div>
          
-        <div className={`items z-[25] flex md:static absolute flex-col left-0 bg-slate-600 w-full md:py-0 md:w-fit py-4 rounded-b-xl md:rounded-b-none transition-all duration-1000 ease-in-out md:flex-row   gap-5 items-center ${open? 'top-12':'top-[-420px]'}`}>
+        <div className={`items z-[25] shadow-lg flex md:static absolute flex-col left-0 bg-slate-600 w-full md:py-0 md:w-fit py-4 rounded-b-xl md:rounded-b-none transition-all duration-1000 ease-in-out md:flex-row   gap-5 items-center ${open? 'top-12':'top-[-420px]'}`}>
 
         {[{name:"Home", path:'/'}, ].map((item, index)=>(
        <>

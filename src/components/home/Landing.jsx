@@ -28,7 +28,7 @@ return (
           ))}</div>
       
 
-      <div className="right md:w-1/2 w-full flex flex-col items-start justify-center  pt-[100px] ">
+      <div className="right md:w-1/2 overflow-hidden z-[-1] w-full flex flex-col items-start justify-center  pt-[100px] ">
           <motion.img
           initial={{opacity:0, x:200}}
           whileInView={{opacity:1, x:0, 
