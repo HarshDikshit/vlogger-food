@@ -88,10 +88,10 @@ fetch()
       <div className=' w-full h-64 flex'> 
         <img src='/img/D3.png' className=' p-2 rounded-2xl mt-5' />
         </div>
-      <div className="outer-wrapper px-10 flex flex-col  py-[80px]">
+      <div className="outer-wrapper px-3 md:px-10 flex flex-col  py-[80px]">
         <div className='heading text-2xl font-bold m-auto font-title border-2 p-2 bg-slate-400 shadow-md rounded-lg'> Your Cart List:</div>
 
-        <div className="list-wrapper flex flex-col mb-2 rounded-xl mt-10">
+        <div className="list-wrapper flex  flex-col mb-2 rounded-xl mt-10">
 
           <div className='w-full capitalize bg-slate-300  flex justify-between shadow-lg font-bold px-3 md:px-52 py-3 rounded-2xl m-2 '>
             <h1>Image</h1>
@@ -102,12 +102,12 @@ fetch()
           </div>
         
               {cartPro.map((item,index)=>(
-                  <div key={index} className="listItem w-full bg-white shadow-lg px-3 md:px-52 py-3 rounded-2xl m-2 duration-300 ease-in-out hover:bg-slate-400">
-                <div className='flex capitalize font-semibold text-lg justify-between'> 
+                  <div key={index} className="listItem  w-full bg-white shadow-lg px-3 md:px-52 py-3 rounded-2xl m-2 duration-300 ease-in-out hover:bg-slate-400">
+                <div className='flex flex-shrink-0 capitalize gap-3 font-semibold text-lg justify-between'> 
                   {/* image section  */}
-                  <div className=" flex-row flex justify-between ">
+                  <div className=" flex-row flex flex-shrink-0 justify-between ">
                   <div className="img justify-start">    
-                  <img id='img' src={item.image } alt="" className='object-cover w-20 h-20 rounded-2xl'/>
+                  <img id='img' src={item.image } alt="" className='object-cover flex-shrink-0 flex h-16 w-16 md:w-20 md:h-20 rounded-2xl'/>
                   </div >
                   </div>
                 

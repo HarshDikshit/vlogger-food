@@ -15,6 +15,8 @@ function Header() {
   const [accOpn, setAccOpn]= useState(false)
   const [addOpn, setAddOpn]= useState(false)
   const [open, setopen]=useState(false)
+
+  const [signOpn, setSignOpn] = useState(false)
   const container = (delay)=>({
     hidden: {y:-100, opacity:0},
     visible: {y: 0, opacity: 1,
@@ -35,6 +37,7 @@ function Header() {
   return (
     <>
     <div className=' fixed z-[999]  flex h-12 justify-between w-full   '>
+    <SignUp click={()=> setSignOpn(!signOpn)} className={`${signOpn? 'block':'hidden'}`} />
     <div className='bg-slate-600  px-10 py-1.5 justify-between z-[999] w-full flex  shadow-lg'>
         <div
         
@@ -89,8 +92,11 @@ function Header() {
             initial='hidden'
             animate='visible'
              onClick={()=>{ 
+              if(!userStatus){
+                setSignD(!signD)
+                return
+              }
               setTrackOpn(!trackOpn)
-              
               setopen(!open)
              }} className={` cursor-pointer text-md   text-white
              whitespace-nowrap`}>Track Orders</motion.div>}

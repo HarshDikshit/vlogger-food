@@ -20,6 +20,7 @@ function GoogleSUB({click}) {
                     {uid: user.uid,
                     name: user.displayName,
                     avatar: user.photoURL,
+                    email: user.email,
                     })
             }
             click()

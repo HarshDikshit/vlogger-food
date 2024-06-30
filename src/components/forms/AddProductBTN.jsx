@@ -79,6 +79,11 @@ function AddProductBTN({
                             <option value="breakfast">breakfast</option>
                             <option value="dinner">dinner</option>
                             <option value="snacks">snacks</option>
+                            <option value="south">south</option>
+                            <option value="fruits">fruits</option>
+                            <option value="healthy">healthy</option>
+                            <option value="italian">italian</option>
+                            <option value="mexican">mexican</option>
                         </select>
 
                         <input type="file" 

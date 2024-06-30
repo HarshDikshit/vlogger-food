@@ -4,7 +4,7 @@ import { FaSquareFacebook, FaSquareInstagram, FaSquareTwitter, FaSquareYoutube }
 function Footer() {
   return (
     <>
-        <div className='wrapper px-[100px] bg-slate-800 flex flex-col '>
+        <div className='wrapper px-[100px] w-full bg-slate-800 flex flex-col '>
             <div className="top m-auto mt-10 flex flex-col">
                 <span className=' text-3xl m-auto text-white font-bold uppercase '>Useful Links</span>
                 <div className=' w-[220px] h-[5px] bg-yellow-600 rounded-md mb-1'></div>
@@ -12,7 +12,7 @@ function Footer() {
                 {[{name:'special offers',route:'/so'  },{name:'About',route:'/about'},
                 {name:'Login',route:'/so'  }
                 ].map((item, index)=> (
-                    <div className=" text-white m-auto font-semibold capitalize mt-2">{item.name}</div>
+                    <div key={index} className=" text-white m-auto font-semibold capitalize mt-2">{item.name}</div>
                 ))}
             </div>
 
@@ -20,9 +20,9 @@ function Footer() {
 {/* help and support */}
 <div className=" flex flex-col w-full justify-center mt-9 mb-3 px-8">
 
-<div className=' flex flex-col justify-center items-center '>
-<h1 className=' justify-self-center  text-indigo-500 m-auto uppercase font-bold text-2xl my-2'>Vloggers Food</h1>
-<h5 className=' justify-self-center text-indigo-500 m-auto  text-md '>You can visit our social media handles.</h5>
+<div className=' flex flex-col w-full justify-center items-center '>
+<h1 className=' justify-self-center  text-center text-indigo-500 m-auto w-full uppercase font-bold text-2xl my-2'>Vloggers Food</h1>
+<h5 className=' justify-self-center text-center text-indigo-500 m-auto  w-full text-md '>You can visit our social media handles.</h5>
 
 </div>
 

@@ -4,14 +4,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateCartValue } from '../../store/cartSlice';
 import { arrayUnion, collection, deleteDoc, deleteField, doc, getDocs, onSnapshot, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../Firebase';
+import SignUp from '../forms/SignUp';
 
 
 
 function ATCB({
     maxLimit,
-    docu
+    docu,
+    setSignOpn
 }) {
     const [quantity, setQuantity] = useState(0)
+    // const [signOpn, setSignOpn] = useState(false)
+
     const dispatch =useDispatch();
     const cartVal = useSelector(state => state.cart.cartValue)
     const userdata= useSelector(state => state.auth.userData)
@@ -34,11 +38,16 @@ function ATCB({
   return (
     <div>
         <div className='btn-ID-wrapper select-none flex flex-col items-center justify-end'>
+
              { quantity===0 &&  <button onClick={async()=>{
-                try {
-                    dispatch(updateCartValue(Number.parseInt(cartVal)+1))
+                if(!loginStatus){
+                    setSignOpn(true) 
+                    return
+                }
+                 try {
+                    // dispatch(updateCartValue(Number.parseInt(cartVal)+1))
                     setQuantity
-                setDoc(doc(db,'users',userdata.uid,'cartProduct',docu.id),{reqQuantity:quantity+1,...docu},       {merge:true})
+                    setDoc(doc(db,'users',userdata.uid,'cartProduct',docu.id),{reqQuantity:quantity+1,...docu},       {merge:true})
                 
             } catch (error) {
                     console.log(error);
@@ -47,6 +56,10 @@ function ATCB({
 
               { quantity !== 0 && <div className={`  flex`}>
                     <div className="plus bg-black text-center text-white rounded-s-lg cursor-pointer  font-bold opacity-60 px-2 py-1"  onClick={async()=>{
+                        if(!loginStatus){
+                            setSignOpn(true)
+                            return
+                        }
                         try {
                         if(quantity<docu.quantity){
                         await setDoc(doc(db,'users',userdata.uid,'cartProduct',docu.id),{reqQuantity:quantity+1}, {merge:true})
@@ -61,6 +74,10 @@ function ATCB({
                     <div type="number" className=' text-center bg-black opacity-30 text-white w-[50px] px-2 py-1' >{quantity} </div>
 
                     <div className="plus bg-black text-center text-white rounded-e-lg font-bold opacity-60 px-2 py-1 cursor-pointer" onClick={async()=>{
+                        if(!loginStatus){
+                            setSignOpn(true) 
+                            return
+                        }
                         
                         try {
                             if(quantity>1){ 
